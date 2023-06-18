@@ -1,1 +1,1 @@
-npm igit
+npm i
