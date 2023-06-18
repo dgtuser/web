@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./css/styles.css">
+
+
+    <title>Responsive coffee website - Bedimcode</title>
+</head>
+
+<body>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <img src="img/logo.png" alt="" class="nav__logo-img">
+                Wok Pitstop.
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active-link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#products" class="nav__link">Products</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#blog" class="nav__link">Blog</a>
+                    </li>
+                    <li class="nav__item">
+                        <% if (session.isAuthenticated) {%>
+                            <a href="dashboard" class="nav__link">Profile</a>
+                        <% } else { %>
+                            <a href="login" class="nav__link">Log In</a>
+                            
+                        <% } %>
+                    </li> 
+                    <li class="nav__item">
+                        <% if (session.isAuthenticated) {%>
+                            <a href="logout" class="nav__link">Log Out</a>
+                        <% } else { %>
+                            <a href="register" class="nav__link">Sign Up</a>
+                        <% } %>
+                    </li>         
+                </ul>
+
+                <div class="nav__close" id="nav-close">
+                    <i class='bx bx-x'></i>
+                </div>
+            </div>
+
+            <!-- Toggle button -->
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-grid-alt'></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="home grid" id="home">
+            <div class="home__container">
+                <div class="home__content container">
+                    <h1 class="home__title">
+                        Best Wok Are Always With You<span>.</span>
+                    </h1>
+                    <p class="home__description">
+                        Buy the best and delicious Wok.
+                    </p>
+
+                    <div class="home__data">
+                        <div class="home__data-group">
+                            <h2 class="home__data-number">120K</h2>
+                            <h3 class="home__data-title">Testimonials</h3>
+                            <p class="home__data-description">
+                                Testimonials from various customers who trust us.
+                            </p>
+                        </div>
+
+                        <div class="home__data-group">
+                            <h2 class="home__data-number">340+</h2>
+                            <h3 class="home__data-title">Exclusive Product</h3>
+                            <p class="home__data-description">
+                                Premium preparation with quality ingredients.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <img src="img/home.png" alt="" class="home__img">
+        </section>
+        <div class="specialty section container" id="specialty">
+            <div class="specialty__container">
+                <div class="specialty__box">
+                    <h2 class="section__title">
+                        Wok Pitstop: Stirring Up Happiness and Brewing Cheer!
+                    </h2>
+
+                    <div>
+                        <a href="#" class="button specialty__button">See more</a>
+                    </div>
+                </div>
+
+                <div class="specialty__category">
+                    <div class="specialty__group specialty__line">
+                        <img src="img/specialty1.png" alt="" class="specialty__img">
+
+                        <h3 class="specialty__title">Selected Wok</h3>
+                        <p class="specialty__description">
+                            We select the best classic Wok, for a true taste.
+                        </p>
+                    </div>
+
+                    <div class="specialty__group specialty__line">
+                        <img src="img/specialty2.png" alt="" class="specialty__img">
+
+                        <h3 class="specialty__title">Japan Dishes</h3>
+                        <p class="specialty__description">
+                            Try all of our Japan dishes.
+                        </p>
+                    </div>
+
+                    <div class="specialty__group">
+                        <img src="img/specialty3.png" alt="" class="specialty__img">
+
+                        <h3 class="specialty__title">Enjoy at Home</h3>
+                        <p class="specialty__description">
+                            Enjoy the best tradisional drinks.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="products section" id="products">
+            <div class="products__container container">
+                <h2 class="section__title">
+                    Choose our Wok and best tradisional dishes
+                </h2>
+
+                <ul class="products__filters">
+                    <li class="products__item products__line active-product" data-filter=".delicacies">
+                        <h3 class="products__title">Classic Wok</h3>
+                        <span class="products__stock">3 products</span>
+                    </li>
+
+                    <li class="products__item products__line" data-filter=".coffee">
+                        <h3 class="products__title">Japan Dishes </h3>
+                        <span class="products__stock">4 products</span>
+                    </li>
+
+                    <li class="products__item" data-filter=".cake">
+                        <h3 class="products__title">Tradisional Drinks</h3>
+                        <span class="products__stock">4 products</span>
+                    </li>
+                </ul>
+
+                <div class="products__content grid">
+                    <article class="products__card delicacies">
+                        <div class="products__shape">
+                            <img src="img/wok1.png" alt="" class="products__img">
+                        </div>
+
+                        <div class="products__data">
+                            <h2 class="products__price">$8</h2>
+                            <h3 class="products__name">SeaFood Wok</h3>
+
+                            <button class="button products__button">
+                                <i class='bx bx-shopping-bag'></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="products__card delicacies">
+                        <div class="products__shape">
+                            <img src="img/wok2.png" alt="" class="products__img">
+                        </div>
+
+                        <div class="products__data">
+                            <h2 class="products__price">$12</h2>
+                            <h3 class="products__name">Classic Wok</h3>
+
+                            <button class="button products__button">
+                                <i class='bx bx-shopping-bag'></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="products__card delicacies">
+                        <div class="products__shape">
+                            <img src="img/wok3.png" alt="" class="products__img">
+                        </div>
+
+                        <div class="products__data">
+                            <h2 class="products__price">$9</h2>
+                            <h3 class="products__name">Fat Wok Coi</h3>
+
+                            <button class="button products__button">
+                                <i class='bx bx-shopping-bag'></i>
+                            </button>
+                        </div>
+                    </article>
+
+
+                    <article class="products__card coffee">
+                        <div class="products__shape">
+                            <img src="img/drink1.png" alt="" class="products__img">
+                        </div>
+
+                        <div class="products__data">
+                            <h2 class="products__price">$7</h2>
+                            <h3 class="products__name">Laim Classic</h3>
+
+                            <button class="button products__button">
+                                <i class='bx bx-shopping-bag'></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="products__card coffee">
+                        <div class="products__shape">
+                            <img src="img/water555.jpg" alt="" class="products__img">
+                        </div>
+
+                        <div class="products__data">
+                            <h2 class="products__price">$12</h2>
+                            <h3 class="products__name">Pure Coffee</h3>
+
+                            <button class="button products__button">
+                                <i class='bx bx-shopping-bag'></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="products__card coffee">
+                        <div class="products__shape">
+                            <img src="img/coffee3.png" alt="" class="products__img">
+                        </div>
+
+                        <div class="products__data">
+                            <h2 class="products__price">$9</h2>
+                            <h3 class="products__name">Milk Coffee</h3>
+
+                            <button class="button products__button">
+                                <i class='bx bx-shopping-bag'></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="products__card coffee">
+                        <div class="products__shape">
+                            <img src="img/coffee4.png" alt="" class="products__img">
+                        </div>
+
+                        <div class="products__data">
+                            <h2 class="products__price">$9</h2>
+                            <h3 class="products__name">Moka Coffee</h3>
+
+                            <button class="button products__button">
+                                <i class='bx bx-shopping-bag'></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="products__card cake">
+                        <div class="products__shape">
+                            <img src="img/cake1.png" alt="" class="products__img">
+                        </div>
+
+                        <div class="products__data">
+                            <h2 class="products__price">$6</h2>
+                            <h3 class="products__name">Cream Cake</h3>
+
+                            <button class="button products__button">
+                                <i class='bx bx-shopping-bag'></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="products__card cake">
+                        <div class="products__shape">
+                            <img src="img/cake2.png" alt="" class="products__img">
+                        </div>
+
+                        <div class="products__data">
+                            <h2 class="products__price">$5</h2>
+                            <h3 class="products__name">Chocolate Croissant</h3>
+
+                            <button class="button products__button">
+                                <i class='bx bx-shopping-bag'></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="products__card cake">
+                        <div class="products__shape">
+                            <img src="img/cake3.png" alt="" class="products__img">
+                        </div>
+
+                        <div class="products__data">
+                            <h2 class="products__price">$15</h2>
+                            <h3 class="products__name">Pancake</h3>
+
+                            <button class="button products__button">
+                                <i class='bx bx-shopping-bag'></i>
+                            </button>
+                        </div>
+                    </article>
+
+                    <article class="products__card cake">
+                        <div class="products__shape">
+                            <img src="img/cake4.png" alt="" class="products__img">
+                        </div>
+
+                        <div class="products__data">
+                            <h2 class="products__price">$12</h2>
+                            <h3 class="products__name">Milk Cake</h3>
+
+                            <button class="button products__button">
+                                <i class='bx bx-shopping-bag'></i>
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog section" id="blog">
+            <div class="blog__container container">
+                <h2 class="section__title">
+                    Our Fresh news about noodles
+                </h2>
+              <div class="blog__content grid">
+                <div class="grid">
+                  <% let loop = 0; %> 
+                  <% news.forEach((item, index) => { %> 
+                    <% if (loop < 12) { %> 
+                      <div class="item"> 
+                        <h1 class="title"><%= item.title %></h1> 
+                        <p><%= item.description %></p>
+                        <img class="poster" src="/uploads/<%= item.poster %>" alt=""> 
+                        <a class="post" href="/news/<%= 'post' + (++loop) %>">See More</a> 
+                      </div> 
+                    <% } else if (loop === 12) { %> 
+                      <a href="/allnews">Смотреть все новости</a> 
+                    <% } %>
+                    <% loop++; %> 
+                  <% }); %> 
+                </div>
+              </div>
+            </div>
+        </section>
+    </main>
+
+
+    <section class="logo section">
+        <div class="logo__container container grid">
+            <img src="img/logos4.png" alt="" class="logo__img">
+            <img src="img/logos1.png" alt="" class="logo__img">
+            <img src="img/logos2.png" alt="" class="logo__img">
+            <img src="img/logos3.png" alt="" class="logo__img">
+            <img src="img/logos4.png" alt="" class="logo__img">
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <h1 class="footer__title">Wok Pitstop.</h1>
+
+            <div class="footer__content grid">
+                <div class="footer__data">
+                    <p class="footer__description">
+                        Subscribe to our newsletter
+                    </p>
+
+                    <div class="footer__newsletter">
+                        <input type="email" placeholder="Your email address" class="footer__input">
+                        <button class="footer__button">
+                            <i class='bx bx-right-arrow-alt'></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="footer__data">
+                    <h2 class="footer__subtitle">Address</h2>
+                    <p class="footer__information">
+                        Dostyk 108 <br>
+                        Catec, Almaty
+                    </p>
+                </div>
+
+                <div class="footer__data">
+                    <h2 class="footer__subtitle">Contact</h2>
+                    <p class="footer__information">
+                        +7707777777 <br>
+                        danil@gmail.com
+                    </p>
+                </div>
+
+                <div class="footer__data">
+                    <h2 class="footer__subtitle">Office</h2>
+                    <p class="footer__information">
+                        Monday - Saturday <br>
+                        9AM - 10PM
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer__group">
+                <ul class="footer__social">
+                    <a href="https://www.facebook.com/" target="_blank" class="footer__social-link">
+                        <i class='bx bxl-facebook'></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/" target="_blank" class="footer__social-link">
+                        <i class='bx bxl-instagram'></i>
+                    </a>
+
+                    <a href="https://twitter.com/" target="_blank" class="footer__social-link">
+                        <i class='bx bxl-twitter'></i>
+                    </a>
+                </ul>
+
+                <span class="footer__copy">
+                    &#169; Developed by Danil Rudyak
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class='bx bx-up-arrow-alt'></i>
+    </a>
+
+
+    <script src="js/mixitup.min.js"></script>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

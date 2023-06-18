@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/dashboardnews.css">
+    <title>Edit News</title>
+</head>
+<body>
+    <div class="form">
+        <h1>Редактировать новость</h1>
+        <form method="POST" action="/edit/<%= news._id %>" enctype="multipart/form-data">
+            <label for="title">Заголовок:</label>
+            <input type="text" id="title" name="title" value="<%= news.title %>" required>
+            
+            <label for="category">Категория:</label>
+            <input type="text" id="category" name="category" value="<%= news.category %>" required>
+
+            <label for="description">Описание:</label>
+            <textarea id="description" name="description" required><%= news.description %></textarea>
+            
+            <label for="poster">Постер:</label>
+            <input type="file" name="poster" id="poster" />
+
+            <button type="submit">Сохранить изменения</button>
+        </form>
+    </div>
+</body>
+</html>

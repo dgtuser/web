@@ -1,0 +1,9 @@
+<% news.forEach((item) => { %> 
+    <div class="col-md-4"> 
+      <figure>
+        <h1 class="title"><%= item.title %></h1> 
+        <img class="poster" src="/uploads/<%= item.poster %>" alt=""> 
+      </figure>
+      <a class="post" href="/news/<%= item.postId %>">Подробнее</a>
+    </div> 
+  <% }); %> 
